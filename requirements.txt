@@ -1,3 +1,7 @@
 flask
 python-docx
 flask-cors
+fastapi
+requests
+uvicorn
+python-dotenv
