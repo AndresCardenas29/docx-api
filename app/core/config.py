@@ -12,5 +12,8 @@ class Settings:
 	PORT: int = os.getenv("PORT", "5000")
 	ENVIRONMENT: str = os.getenv("ENVIRONMENT", "development")
 	TEMPLATE_PATH: str = os.getenv("TEMPLATE_PATH", "templates/template.docx")
+	CREATED_BY: str = os.getenv("CREATED_BY", "Mario Cardenas")
+	WEBSITE_URL: str = os.getenv("WEBSITE_URL", "https://nekdress.online/")
+
 
 settings = Settings()

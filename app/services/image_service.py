@@ -1,7 +1,8 @@
 import requests
 
-def download_drive_image(drive_id: str, output_path: str = "temp_image.jpg"):
+def download_drive_image(drive_id: str, output_path: str = "output/temp_image.jpg"):
     url = f"https://drive.google.com/uc?export=download&id={drive_id}"
+    print(url)
     response = requests.get(url)
     if response.status_code == 200:
         with open(output_path, "wb") as f:
