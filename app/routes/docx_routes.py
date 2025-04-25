@@ -1,4 +1,5 @@
 from fastapi import APIRouter
+from fastapi.responses import FileResponse
 from app.schemas.generate_request import GenerateRequest
 from app.services.docx_service import DocxService
 from app.services.image_service import download_drive_image
@@ -105,9 +106,11 @@ def get_formatting_options(body: dict):
     
     doc.save("output/temp.docx")
     
-    return {
-        "message": "Docx formatting options retrieved successfully.",
-        "status": "ok",
-        "data": body
-    }
+    doc.to_pdf("output/temp.docx")
+    
+    return FileResponse(
+        path="output/temp.pdf",
+        media_type="application/pdf",
+        filename="temp.pdf",
+    )
     

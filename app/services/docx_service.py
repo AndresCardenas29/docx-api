@@ -2,6 +2,7 @@ from docx import Document
 from docx.shared import Inches
 from docx.enum.text import WD_PARAGRAPH_ALIGNMENT
 from app.utils.file_utils import delete_file
+from docx2pdf import convert
 
 class DocxService:
     def __init__(
@@ -70,3 +71,8 @@ class DocxService:
                         for run in paragraph.runs:
                             print(run.text)
                             
+    # This method transform the document to a PDF format.
+    def to_pdf(self, output_path: str):
+        convert(output_path)
+        return output_path.replace(".docx", ".pdf")
+
